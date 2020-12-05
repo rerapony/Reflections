@@ -1,10 +1,10 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+// Copyright Epic Games, Inc. All Rights Reserved.
 
 using UnrealBuildTool;
 
-public class Reflections : ModuleRules
+public class BlackSolutions : ModuleRules
 {
-	public Reflections(ReadOnlyTargetRules Target) : base(Target)
+	public BlackSolutions(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	

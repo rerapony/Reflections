@@ -11,9 +11,6 @@ AEnemy::AEnemy()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	StaticMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-	StaticMesh->SetupAttachment(RootComponent);
 }
 
 // Called when the game starts or when spawned
@@ -31,6 +28,5 @@ void AEnemy::Tick(float DeltaTime)
 	FVector OldLocation = GetActorLocation();
 	FVector NewLocation = OldLocation + GetActorForwardVector() * MovementSpeed * DeltaTime;
 	SetActorLocation(NewLocation);
-
-	if (NewLocation.Size() < 1) Destroy();
+	NewLocation.Z = OldLocation.Z;
 }

@@ -13,31 +13,11 @@ ARelocatable::ARelocatable()
 
 }
 
-// Called when the game starts or when spawned
-void ARelocatable::BeginPlay()
-{
-	Super::BeginPlay();
+float ARelocatable::GetRandomAngle() const {
+	float random = ((float)rand()) / MAX_ANGLE;
+	float range = MAX_ANGLE;
 
-	float AngleStep = 2 * PI / InitNumber;
-	const FVector CircleCenter = GetActorLocation();
-
-	const float X0 = CircleCenter.X;
-	const float Y0 = CircleCenter.Y;
-
-	float SpawnAngle = AngleStep;
-
-	for (int i = 0; i < InitNumber; i++) {
-
-		float X = X0 + CircleRadius * FMath::Cos(SpawnAngle);
-		float Y = Y0 + CircleRadius * FMath::Sin(SpawnAngle);
-		const FVector SpawnPoint(X, Y, 0);
-		const FRotator SpawnRotation = (SpawnPoint - CircleCenter).Rotation();
-
-		AActor* SpawnedActor = GetWorld()->SpawnActor<AActor>(ActorToSpawn, { X, Y, 0 }, SpawnRotation);
-
-		SpawnAngle += AngleStep;
-		AfterSpawn(SpawnedActor);
-	}
+	return (random * range) + MIN_ANGLE;
 }
 
 // Called every frame

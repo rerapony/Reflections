@@ -16,8 +16,7 @@ public:
 	ARelocatable();
 
 protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	float GetRandomAngle() const;
 
 public:	
 	// Called every frame
@@ -34,4 +33,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	int32 InitNumber;
 
+	const float MIN_ANGLE = 0;
+	const float MAX_ANGLE = 2 * PI;
 };

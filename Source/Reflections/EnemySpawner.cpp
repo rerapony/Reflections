@@ -65,7 +65,7 @@ void AEnemySpawner::Tick(float DeltaTime)
         const FVector SpawnedLocation = a->GetActorLocation();
         float distance = FVector::DistXY(circleCenter, SpawnedLocation);
 
-        if (distance >= 3 * CircleRadius || SpawnedLocation.Size() < 1) {
+        if (distance >= 3 * CircleRadius || SpawnedLocation.Size() < 1 || a->IsDestroyed) {
             auto res = a->Destroy();
             it = SpawnedEnemies.erase(it);
 

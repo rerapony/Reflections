@@ -33,5 +33,8 @@ public:
 	float Health;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool IsDestroyed{ false };
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UStaticMeshComponent* StaticMesh;
 };

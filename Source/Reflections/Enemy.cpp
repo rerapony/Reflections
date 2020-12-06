@@ -30,12 +30,3 @@ void AEnemy::Tick(float DeltaTime)
 	SetActorLocation(NewLocation);
 	NewLocation.Z = OldLocation.Z;
 }
-
-// TakeDamage event
-float AEnemy::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	Health -= Damage;
-	if (Health <= 0) Destroy();
-
-	return 0;
-}

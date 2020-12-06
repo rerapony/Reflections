@@ -4,16 +4,16 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "Relocatable.generated.h"
+#include "Enemy.generated.h"
 
 UCLASS()
-class BLACKSOLUTIONS_API ARelocatable : public AActor
+class BLACKSOLUTIONS_API AEnemy : public AActor
 {
 	GENERATED_BODY()
 	
 public:	
 	// Sets default values for this actor's properties
-	ARelocatable();
+	AEnemy();
 
 protected:
 	// Called when the game starts or when spawned
@@ -23,16 +23,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-protected:
-
-	virtual void AfterSpawn(AActor* actor);
+private:
 
 	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	TSubclassOf<AActor> actorToSpawn;
-
-	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	float circleRadius;
-
-	UPROPERTY(EditAnywhere, meta = (AllowPrivateAccess = "true"))
-	int initNumber;
+	float movementSpeed;
 };

@@ -32,9 +32,9 @@ void ARelocatable::BeginPlay()
 		float x = x0 + circleRadius * cos(spawnAngle);
 		float y = y0 + circleRadius * sin(spawnAngle);
 		const FVector spawnPoint(x, y, 0);
-		const FRotator spawnRotation = (spawnPoint - circleCenter).Rotation();
+		FRotator spawnRotation = (circleCenter - spawnPoint).Rotation();
 
-		AActor* spawnedActor = GetWorld()->SpawnActor<AActor>(actorToSpawn, { x, y, 0 }, spawnRotation);
+		AActor* spawnedActor = GetWorld()->SpawnActor<AActor>(actorToSpawn, { x, y, 0 }, {0, spawnRotation.Yaw, 0});
 
 		spawnAngle += angleStep;
 		AfterSpawn(spawnedActor);

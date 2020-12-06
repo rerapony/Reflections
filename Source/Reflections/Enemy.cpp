@@ -34,12 +34,3 @@ void AEnemy::Tick(float DeltaTime)
 
 	if (NewLocation.Size() < 1) Destroy();
 }
-
-// TakeDamage event
-float AEnemy::TakeDamage(float Damage, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser)
-{
-	Health -= Damage;
-	if (Health <= 0) Destroy();
-
-	return 0;
-}
